@@ -78,4 +78,12 @@ public class SinglyLinkedListTest {
         Assert.assertEquals(2, copyList.copy().get(3));
 
     }
+
+    @Test
+    public void TestSort(){
+        singly.sort();
+        Assert.assertEquals(2, singly.get(2));
+        Assert.assertEquals(4, singly.get(4));
+        Assert.assertEquals(6, singly.get(6));
+    }
 }
