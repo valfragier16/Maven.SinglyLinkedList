@@ -105,7 +105,6 @@ public class SinglyLinkedList{
         int temp;
 
         if(head == null){
-            return;
         }
         else{
             while(current != null){
