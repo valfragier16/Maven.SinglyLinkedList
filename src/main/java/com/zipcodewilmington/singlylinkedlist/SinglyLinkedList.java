@@ -10,67 +10,88 @@ import java.util.NoSuchElementException;
 public class SinglyLinkedList{
     Node head = null; // head of list
 
-    private class Node{
+    static class Node{
         int data;
         Node next;
 
         Node(int d){
             data = d;
         }
-
     }
 
-    public void add(int item) {
+    public void add(int data) {
         Node n = head;
         if(n == null){ // added first item to list
-            head = new Node(item);
+            head = new Node(data);
         }
         else{
             while(n.next != null){
                 n = n.next;
             }
-            n.next = new Node(item);
+            n.next = new Node(data);
         }
     }
 
-
-    public void remove(int key) {
-        // store head node
-        Node temp = head, prev = null;
-
-        // If head node itself holds the key to be deleted
-        if(temp != null && temp.data == key){
-            head = temp.next;
-            return;
-        } // Search for the ket to be deleted
-        while(temp != null && temp.data != key){
-            prev = temp;
-            temp = temp.next;
-        } // if key was not present in linked list
-        if(temp == null) throw new RuntimeException("cannot delete");
-
-        // delete temp node
-        prev.next = temp.next;
-
+    public void remove(int data) {
+        Node current = head;
+        if (head.data == data) {
+            head = head.next;
+        }
+        while (current.next != null) {
+            if (current.next.data == data) {
+                current.next = current.next.next;
+                return;
+            }
+            current = current.next;
+        }
     }
 
-    public boolean contains() {
-        return true;
+    public boolean contains(int data) {
+        Node current = head;
+        while(current != null) {
+            if (current.data == data) {
+                return true;
+            }current = current.next;
+        }
+        return false;
     }
 
-    public int find() {
-        return 1;
+    public int find(int data) {
+        Node current = head;
+        int count = 1; // index of Node we are currently looking at
+        while(current != null){
+            if(current.data == data)
+                return count;
+            count++;
+            current = current.next;
+        }
+        return count;
     }
 
     public int size() {
-        return 1;
+        int length = 0;
+        Node current = head;
+        while(current != null){
+            length++;
+            current = current.next;
+        }
+        return length;
     }
 
-    public int get() {
-        return 1;
+    public int get(int index) {
+        Node current = head;
+        int count = 1; // index of Node we are currently looking at
+        while(current != null){
+            if(count == index)
+                return current.data;
+            count++;
+            current = current.next;
+        }
+        return -1;
     }
 
 //    public LinkedList copy() {
+//
 //        return list;
 //    }
 
