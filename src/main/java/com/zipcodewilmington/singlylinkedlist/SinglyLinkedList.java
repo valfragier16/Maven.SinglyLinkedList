@@ -90,10 +90,15 @@ public class SinglyLinkedList{
         return -1;
     }
 
-//    public LinkedList copy() {
-//
-//        return list;
-//    }
+    public SinglyLinkedList copy() {
+        SinglyLinkedList copyList = new SinglyLinkedList();
+        Node current = head;
+        while(current != null){
+            copyList.add(current.data);
+            current = current.next;
+        }
+        return copyList;
+    }
 
     public void sort() {
 

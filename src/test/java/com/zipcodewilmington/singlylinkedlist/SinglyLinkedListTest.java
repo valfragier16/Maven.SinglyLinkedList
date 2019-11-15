@@ -65,4 +65,17 @@ public class SinglyLinkedListTest {
         Assert.assertEquals(6,singly.get(2));
         Assert.assertEquals(5,singly.get(4));
     }
+
+    @Test
+    public void TestCopy(){
+        SinglyLinkedList copyList = new SinglyLinkedList();
+        copyList.add(1);
+        copyList.add(6);
+        copyList.add(2);
+        copyList.add(5);
+        copyList.add(3);
+        copyList.add(4);
+        Assert.assertEquals(2, copyList.copy().get(3));
+
+    }
 }
